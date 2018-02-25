@@ -1,5 +1,13 @@
 package AlquilerVehiculos.mvc.modelo.dao;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
 import AlquilerVehiculos.mvc.modelo.dominio.Cliente;
 import AlquilerVehiculos.mvc.modelo.dominio.ExcepcionAlquilerVehiculos;
 
@@ -13,6 +21,7 @@ public class Clientes {
 
 	private Cliente[] clientes;
 	private final int MAX_CLIENTES = 20;
+	private final String FICHERO_CLIENTES = "datos/clientes.dat";
 	
 	/**
 	 * Constructor de la clase que crea el array
@@ -28,6 +37,44 @@ public class Clientes {
 	 */
 	public Cliente[] getClientes() {
 		return clientes.clone();
+	}
+	
+	/**
+	 * Método para leer datos de clientes del fichero
+	 */
+	public void leerClientes() {
+		File fichero = new File (FICHERO_CLIENTES);
+		ObjectInputStream entrada;
+		
+		try {
+			entrada = new ObjectInputStream(new FileInputStream(fichero));
+			try {
+				clientes = (Cliente[])entrada.readObject();
+				entrada.close();
+				System.out.println("Fichero de clientes leído correctamente.");
+			}catch (ClassNotFoundException e) {
+				System.out.println("ERROR: No se encuentra la clase que hay que leer");
+			}catch(IOException e) {
+				System.out.println("Error inesperado de Entrada/Salida");
+			}
+		}catch (IOException e) {
+			System.out.println("ERROR: no se puede abrir el fichero de clientes");
+		}
+	}
+	
+	public void escribirClientes() {
+		File fichero = new File(FICHERO_CLIENTES);
+		
+		try {
+			ObjectOutputStream salida = new ObjectOutputStream(new FileOutputStream(fichero));
+			salida.writeObject((Cliente[])clientes);
+			salida.close();
+			System.out.println("Fichero de clientes escrito correctamente");
+		}catch(FileNotFoundException e) {
+			System.out.println("ERROR: no se puede crear el fichero clientes");
+		}catch (IOException e) {
+			System.out.println("Error inesperado de Entrada/Salida");
+		}
 	}
 		
 	/**

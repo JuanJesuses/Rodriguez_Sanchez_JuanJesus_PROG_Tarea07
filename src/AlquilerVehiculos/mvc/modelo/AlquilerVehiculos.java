@@ -126,6 +126,16 @@ public class AlquilerVehiculos implements IModeloAlquilerVehiculos {
 	public void escribirVehiculos() {
 		vehiculos.escribirVehiculos();
 	}
+	
+	@Override
+	public void leerClientes() {
+		clientes.leerClientes();
+	}
+	
+	@Override
+	public void escribirClientes() {
+		clientes.escribirClientes();
+	}
 
 		
 	/* (non-Javadoc)
