@@ -74,7 +74,7 @@ public class Alquileres {
 			ObjectOutputStream salida = new ObjectOutputStream(new FileOutputStream(fichero));
 			salida.writeObject((Alquiler[])alquileres);
 			salida.close();
-			System.out.println("Fichero de clientes escrito correctamente");
+			System.out.println("Fichero de alquileres escrito correctamente");
 		}catch(FileNotFoundException e) {
 			System.out.println("ERROR: no puedo crear el fichero de clientes");
 		}catch(IOException e) {
