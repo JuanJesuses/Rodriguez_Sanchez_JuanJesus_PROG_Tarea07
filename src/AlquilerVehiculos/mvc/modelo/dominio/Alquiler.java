@@ -1,5 +1,6 @@
 package AlquilerVehiculos.mvc.modelo.dominio;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -14,7 +15,7 @@ import AlquilerVehiculos.mvc.modelo.dominio.vehiculo.Vehiculo;
  * @author john
  *
  */
-public class Alquiler {
+public class Alquiler implements Serializable{
 	
 	private Date fecha;
 	private int dias;

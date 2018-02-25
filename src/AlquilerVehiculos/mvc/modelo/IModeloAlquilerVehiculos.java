@@ -38,5 +38,9 @@ public interface IModeloAlquilerVehiculos {
 	void leerClientes();
 	
 	void escribirClientes();
+	
+	void leerAlquileres();
+	
+	void escribirAlquileres();
 
 }

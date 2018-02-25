@@ -25,7 +25,7 @@ public class PrincipalAlquilerVehiculos {
 		IControladorAlquilerVehiculos controlador = new ControladorAlquilerVehiculos(modelo, vista);
 		
 		controlador.comenzar();
-		controlador.salir();
+		//controlador.salir();
 		
 	}
 }

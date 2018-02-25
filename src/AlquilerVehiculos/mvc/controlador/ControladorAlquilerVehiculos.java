@@ -35,12 +35,14 @@ public class ControladorAlquilerVehiculos implements IControladorAlquilerVehicul
 		vista.comenzar();
 		modelo.leerVehiculos();
 		modelo.leerClientes();
+		modelo.leerAlquileres();
 	}
 	
 	@Override
 	public void salir() {
 		modelo.escribirVehiculos();
 		modelo.escribirClientes();
+		modelo.escribirAlquileres();
 	}
 	
 	/* (non-Javadoc)
