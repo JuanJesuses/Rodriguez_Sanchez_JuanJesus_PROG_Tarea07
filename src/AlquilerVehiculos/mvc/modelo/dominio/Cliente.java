@@ -15,10 +15,8 @@ public class Cliente implements Serializable{
 	private String dni;
 	private DireccionPostal direccionPostal;
 	private int identificador;
-	private static int ultimoIdentificador = 0;
-	private static int numClientes = 0;
-	
-	
+	private static int ultimoIdentificador;
+		
 	
 	/**
 	 * Constructor con parámetros que cambia el estado del objeto 
@@ -33,8 +31,7 @@ public class Cliente implements Serializable{
 		setDni(dni);
 		setDireccionPostal(direccionPostal);
 		asignarNuevoIdentificador();
-		numClientes++;
-		identificador = numClientes;
+		
 	}
 	
 	/**

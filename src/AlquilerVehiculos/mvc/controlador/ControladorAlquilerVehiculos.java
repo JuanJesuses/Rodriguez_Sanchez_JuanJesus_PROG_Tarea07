@@ -32,10 +32,11 @@ public class ControladorAlquilerVehiculos implements IControladorAlquilerVehicul
 	@Override
 	public void comenzar() {
 		//modelo.anadirDatosPrueba();
-		vista.comenzar();
+		
 		modelo.leerVehiculos();
 		modelo.leerClientes();
 		modelo.leerAlquileres();
+		vista.comenzar();
 	}
 	
 	@Override
