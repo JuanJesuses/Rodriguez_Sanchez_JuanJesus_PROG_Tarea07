@@ -60,7 +60,7 @@ public class Alquileres {
 				System.out.println("ERROR: Error inesperado de Entrada/Salida");
 			}
 		}catch(IOException e) {
-			System.out.println("No se puede abrir el fichero de alquileres");
+			System.out.println("ERROR: No se puede abrir el fichero de alquileres");
 		}
 	}
 	

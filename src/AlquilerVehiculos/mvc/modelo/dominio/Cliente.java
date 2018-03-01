@@ -10,11 +10,14 @@ import java.util.regex.Pattern;
  *
  */
 public class Cliente implements Serializable{
+	
 	private String nombre;
 	private String dni;
 	private DireccionPostal direccionPostal;
 	private int identificador;
-	private static int ultimoIdentificador;
+	private static int ultimoIdentificador = 0;
+	private static int numClientes = 0;
+	
 	
 	
 	/**
@@ -30,6 +33,8 @@ public class Cliente implements Serializable{
 		setDni(dni);
 		setDireccionPostal(direccionPostal);
 		asignarNuevoIdentificador();
+		numClientes++;
+		identificador = numClientes;
 	}
 	
 	/**
@@ -48,6 +53,14 @@ public class Cliente implements Serializable{
 		identificador = ultimoIdentificador;
 	}
 	
+	
+	public static void aumentarUltimoIdentificador(int cantidad) {
+		if(cantidad > 0) {
+			ultimoIdentificador += cantidad;
+		}else {
+			throw new ExcepcionAlquilerVehiculos("Sólo se puede aumentar el último identificador");
+		}
+	}
 	/**
 	 * Método que comprueba que el patrón del DNI
 	 * introducido por teclado, es correcto

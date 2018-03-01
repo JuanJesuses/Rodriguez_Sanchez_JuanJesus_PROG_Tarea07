@@ -1,5 +1,6 @@
 package AlquilerVehiculos.mvc.modelo.dominio;
 
+import java.io.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -8,7 +9,7 @@ import java.util.regex.Pattern;
  * @author john
  *
  */
-public class DireccionPostal {
+public class DireccionPostal implements Serializable{
 	
 	private String calle;
 	private String localidad;

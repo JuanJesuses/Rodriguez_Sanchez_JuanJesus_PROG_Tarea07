@@ -22,7 +22,7 @@ public class Clientes {
 	private Cliente[] clientes;
 	private final int MAX_CLIENTES = 20;
 	private final String FICHERO_CLIENTES = "datos/clientes.dat";
-	
+			
 	/**
 	 * Constructor de la clase que crea el array
 	 * y lo inicializa a MAX_CLIENTES
@@ -43,6 +43,7 @@ public class Clientes {
 	 * Método para leer datos de clientes del fichero
 	 */
 	public void leerClientes() {
+		
 		File fichero = new File (FICHERO_CLIENTES);
 		ObjectInputStream entrada;
 		
@@ -52,16 +53,20 @@ public class Clientes {
 				clientes = (Cliente[])entrada.readObject();
 				entrada.close();
 				System.out.println("Fichero de clientes leído correctamente.");
+				//Cliente.aumentarUltimoIdentificador(calcularUltimoIdentificador());
 			}catch (ClassNotFoundException e) {
 				System.out.println("ERROR: No se encuentra la clase que hay que leer");
 			}catch(IOException e) {
-				System.out.println("Error inesperado de Entrada/Salida");
+				System.out.println("ERROR: Error inesperado de Entrada/Salida");
 			}
 		}catch (IOException e) {
 			System.out.println("ERROR: no se puede abrir el fichero de clientes");
-		}
+		}	
 	}
 	
+	/**
+	 * Método para escribir datos de clientes en un fichero
+	 */
 	public void escribirClientes() {
 		File fichero = new File(FICHERO_CLIENTES);
 		
@@ -73,7 +78,7 @@ public class Clientes {
 		}catch(FileNotFoundException e) {
 			System.out.println("ERROR: no se puede crear el fichero clientes");
 		}catch (IOException e) {
-			System.out.println("Error inesperado de Entrada/Salida");
+			System.out.println("ERROR: Error inesperado de Entrada/Salida");
 		}
 	}
 		
@@ -184,6 +189,20 @@ public class Clientes {
 		}else {
 			return null;
 		}
+	}
+	
+	private int calcularUltimoIdentificador() {
+		int ultimoIdentificador = 0;
+		int i = 0;
+		
+		while(clientes[i] != null) {
+			if(clientes[i].getIdentificador() > ultimoIdentificador) {
+				ultimoIdentificador = clientes[i].getIdentificador();
+			}
+			i++;
+		}
+		
+		return ultimoIdentificador;
 	}
 
 }

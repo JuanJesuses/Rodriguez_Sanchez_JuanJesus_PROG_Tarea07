@@ -1,5 +1,7 @@
 package AlquilerVehiculos.mvc.modelo.dominio.vehiculo;
 
+import java.io.Serializable;
+
 import AlquilerVehiculos.mvc.modelo.dominio.ExcepcionAlquilerVehiculos;
 
 /**
@@ -7,8 +9,9 @@ import AlquilerVehiculos.mvc.modelo.dominio.ExcepcionAlquilerVehiculos;
  * @author john
  *
  */
-public class DatosTecnicosVehiculos {
+public class DatosTecnicosVehiculos implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
 	private int cilindrada;
 	private int numeroPlazas;
 	private int pma;
