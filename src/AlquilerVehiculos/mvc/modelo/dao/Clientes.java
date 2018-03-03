@@ -53,7 +53,7 @@ public class Clientes {
 				clientes = (Cliente[])entrada.readObject();
 				entrada.close();
 				System.out.println("Fichero de clientes leído correctamente.");
-				//Cliente.aumentarUltimoIdentificador(calcularUltimoIdentificador());
+				Cliente.aumentarUltimoIdentificador(calcularUltimoIdentificador());
 			}catch (ClassNotFoundException e) {
 				System.out.println("ERROR: No se encuentra la clase que hay que leer");
 			}catch(IOException e) {
@@ -200,7 +200,7 @@ public class Clientes {
 				ultimoIdentificador = clientes[i].getIdentificador();
 			}
 			i++;
-		}
+		}	
 		
 		return ultimoIdentificador;
 	}

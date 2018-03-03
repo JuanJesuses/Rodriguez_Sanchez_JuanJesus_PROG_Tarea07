@@ -11,11 +11,15 @@ import java.util.regex.Pattern;
  */
 public class Cliente implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String nombre;
 	private String dni;
 	private DireccionPostal direccionPostal;
 	private int identificador;
-	private static int ultimoIdentificador;
+	private static int ultimoIdentificador = 0;
 		
 	
 	/**
@@ -109,7 +113,7 @@ public class Cliente implements Serializable{
 	
 	@Override
 	public String toString() {
-		return String.format("Identificador: %d Nombre: %s DNI: %s %s", 
+		return String.format("Identificador: %d Nombre: %s DNI: %s %s %n", 
 				identificador, nombre, dni, direccionPostal);
 	}
 }
